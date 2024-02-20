@@ -21,7 +21,9 @@
                     <td>{{ $song->order }}</td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    <td>
+                        <a href="{{ route('song.create') }}">Añadir canción</a>
+                    </td>
 
                 </tr>
             @endforeach

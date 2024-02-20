@@ -18,7 +18,7 @@
             @foreach ($artists as $artist)
                 <tr>
                     <td>{{ $artist->name }}</td>
-                    <td><a href="{{ route('artists.index', $artist->id) }}">Ver álbumes</a></td>
+                    <td><a href="{{ route('artist.index', $artist->id) }}">Ver álbumes</a></td>
                     <td>{{ $artist->albums_count }}</td>
                     <td>{{ $artist->songs_count }}</td>
                 </tr>

@@ -21,7 +21,7 @@ class SongController extends Controller
      */
     public function create()
     {
-        //
+        return view('songs.create');
     }
 
     /**
@@ -29,7 +29,21 @@ class SongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'album_id' => 'required',
+            'name' => 'required',
+            'duration' => 'required',
+            'order' => 'required'
+        ]);
+
+        $song = new Song();
+        $song->album_id = $request->input('album_id');
+        $song->name = $request->input('name');
+        $song->duration = $request->input('duration');
+        $song->order = $request->input('order');
+        $song->save();
+
+        return redirect()->route('songs.index')->with('success', 'Canción añadida correctamente');
     }
 
     /**
